@@ -22,6 +22,18 @@ def collect_datas(keyword):
         index = index + 1
 
 def save_database():
+    # CREATE A DATABASE TO SAVE THE TWEETS 
+    # CREATE TABLE twittertweets
+    # (
+    #     id text,
+    #     content text,
+    #     username character varying(150),
+    #     like_count integer,
+    #     retweet_count integer,
+    #     publish_date text,
+    #     source_label text
+    # )
+
     conn = psycopg2.connect(database="TwitterData", user='postgres',
                             password='12345', host='localhost', port='5432')
     cursor = conn.cursor()
@@ -32,6 +44,7 @@ def save_database():
     print("All Datas Saved Successfully!")
     conn.close()
 
+# START POINT
 for k in keywords:
     print(k)
     collect_datas(k)
